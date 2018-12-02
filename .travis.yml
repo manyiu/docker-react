@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t manyiu/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run manyiu/docker-react npm run test -- --coverage
